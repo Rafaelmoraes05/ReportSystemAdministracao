@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script defer src="script.js"></script>
+    <style>
+        body {
+            background-color: #1d1d1d;
+        }
+
+        .navbar {
+            background-color: #d95f0e;
+            justify-content: center;
+        }
+
+        .navbar .nav-link {
+            color: #fff !important;
+            margin: 0 15px;
+        }
+
+        .navbar .nav-link:hover {
+            color: #1d1d1d !important;
+            background-color: transparent;
+            border: 1px solid #d95f0e;
+        }
+
+        h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            padding: 30px;
+        }
+
+        .secao {
+            width: 48%;
+            background-color: #2e2e2e;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .table {
+            margin-top: 20px;
+            color: #ffffff;
+            background-color: #444; /* Fundo da tabela */
+        }
+
+        .table th,
+        .table td {
+            border-color: #555;
+        }
+
+        .table, th, td{
+            background-color: #3a3a3a !important; 
+            color: #fff !important;
+        }
+
+        .secao-filtro {
+            margin: 30px 0;
+        }
+
+        .btn-custom {
+            background-color: #d95f0e;
+            color: #fff;
+            border: 1px solid #d95f0e;
+        }
+
+        .btn-custom:hover {
+            background-color: transparent;
+            color: #d95f0e;
+            border: 1px solid #d95f0e;
+        }
+
+        .form-select,
+        .form-control {
+            background-color: #555;
+            color: #fff;
+            border: 1px solid #888;
+        }
+
+        .form-select:focus,
+        .form-control:focus {
+            border-color: #d95f0e;
+            background-color: #444;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navBarCollapse" aria-controls="navBarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navBarCollapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Reportes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="funcionario.html">Funcionários</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="setores.html">Setores</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="secao">
+            <h2>Histórico de Incidentes</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Tipo de reporte</th>
+                        <th>Qtd de Reporte</th>
+                    </tr>
+                </thead>
+                <tbody id="corpoTabelaHistorico"></tbody>
+            </table>
+        </div>
+
+        <div class="secao">
+            <h2>Filtrar Incidentes</h2>
+            <div class="secao-filtro">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <select id="selectDepartamento" class="form-select"></select>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <input type="date" id="inputDataFiltro" class="form-control" />
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <button id="botaoAplicarFiltro" class="btn btn-custom">Aplicar Filtro</button>
+                    <button id="botaoLimparFiltro" class="btn btn-custom">Limpar Filtro</button>
+                </div>
+            </div>
+
+            <h2>Incidentes Filtrados</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Tipo de reporte</th>
+                        <th>Qtd de Reporte</th>
+                    </tr>
+                </thead>
+                <tbody id="corpoTabelaFiltrada"></tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>
